@@ -1,15 +1,22 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-
-import { helloWorld } from '../modules/simple';
-
 import './main.scss';
 import './vendor.scss';
 
-const Main = () => {
-	helloWorld();
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import Layout from './layout/layout';
+import DashboardPage from './pages/dashboard';
 
-	return <div>Application loaded</div>;
+const Main = () => {
+	return (
+		<HashRouter>
+			<Layout>
+				<Routes>
+					<Route path='/' element={<DashboardPage />} />
+				</Routes>
+			</Layout>
+		</HashRouter>
+	);
 };
 
 const reactContainer = document.querySelector('#application-container');
