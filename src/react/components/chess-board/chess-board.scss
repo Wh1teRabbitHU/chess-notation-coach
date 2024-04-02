@@ -4,9 +4,9 @@
 	display: flex;
 	flex-wrap: wrap;
 	width: calc(90vh - 172px);
-	max-width: 60vw;
+	max-width: 70vw;
 	border: 2px solid $gray-600;
-	margin: 12px;
+	margin: 12px auto;
 
 	.chess-square {
 		width: 12.5%;
