@@ -9,7 +9,7 @@ const ChessBoard = () => {
 	const squares = [];
 
 	for (const detail of ChessSquareDetails) {
-		squares.push(<ChessSquare file={detail.file} rank={detail.rank} color={detail.color} />);
+		squares.push(<ChessSquare file={detail.file} rank={detail.rank} color={detail.color} piece={detail.piece} />);
 	}
 
 	return <div className='chess-board'>{squares}</div>;

@@ -11,14 +11,21 @@
 	.chess-square {
 		width: 12.5%;
 		padding-bottom: 12.5%;
-		// height: 12.5vw;
+		position: relative;
 
 		&.white {
-			background-color: $white;
+			background-color: $light-square;
 		}
 
 		&.black {
-			background-color: $gray-600;
+			background-color: $dark-square;
+		}
+
+		.check-piece {
+			position: absolute;
+			width: 100%;
+			top: 0;
+			left: 0;
 		}
 	}
 }
