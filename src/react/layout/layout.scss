@@ -1,0 +1,18 @@
+@import "../styles/index.scss";
+
+$containerPadding: 12px;
+
+.main-container {
+	width: calc(100% - rem(2 * $containerPadding + 24px));
+	max-width: rem(1280px);
+	padding: 0 rem($containerPadding);
+	border-radius: 4px;
+	margin: 0 auto;
+	text-align: center;
+
+	hr {
+		border-color: transparent;
+		border-bottom-color: $gray-500;
+		margin-bottom: rem(16px);
+	}
+}

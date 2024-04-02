@@ -1,5 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import { __dirname, packageJson } from './node-env.js';
@@ -32,6 +33,7 @@ export default {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({ template: './src/static/index.html' }),
+		new CopyWebpackPlugin({ patterns: [{ from: './src/static/assets', to: 'assets' }] }),
 		new CleanWebpackPlugin({ protectWebpackAssets: false, cleanAfterEveryBuildPatterns: ['*.LICENSE.txt'] })
 	]
 };

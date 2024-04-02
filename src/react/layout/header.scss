@@ -1,0 +1,23 @@
+@import "../styles/index.scss";
+
+.header {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 12px;
+
+	.logo img {
+		height: 96px;
+	}
+
+	.navigator {
+		display: flex;
+		font-size: 1.6rem;
+		margin-top: rem(12px);
+
+		.element {
+			margin: 0 rem(12px);
+			text-align: center;
+		}
+	}
+}
