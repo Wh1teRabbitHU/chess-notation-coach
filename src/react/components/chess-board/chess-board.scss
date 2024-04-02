@@ -1,0 +1,24 @@
+@import "../../styles/index.scss";
+
+.chess-board {
+	display: flex;
+	flex-wrap: wrap;
+	width: calc(90vh - 172px);
+	max-width: 60vw;
+	border: 2px solid $gray-600;
+	margin: 12px;
+
+	.chess-square {
+		width: 12.5%;
+		padding-bottom: 12.5%;
+		// height: 12.5vw;
+
+		&.white {
+			background-color: $white;
+		}
+
+		&.black {
+			background-color: $gray-600;
+		}
+	}
+}

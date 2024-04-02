@@ -12,7 +12,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
 	return (
-		<div className='application-container'>
+		<div className='layout'>
 			<Header />
 			<div className='main-container'>
 				<hr />

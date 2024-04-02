@@ -4,10 +4,10 @@ $containerPadding: 12px;
 
 .main-container {
 	width: calc(100% - rem(2 * $containerPadding + 24px));
-	max-width: rem(1280px);
+	max-width: rem(1024px);
 	padding: 0 rem($containerPadding);
 	border-radius: 4px;
-	margin: 0 auto;
+	margin: 0 auto 24px;
 	text-align: center;
 
 	hr {
