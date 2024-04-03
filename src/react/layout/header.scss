@@ -3,17 +3,23 @@
 .header {
 	display: flex;
 	align-items: center;
-	flex-direction: column;
-	margin-bottom: 12px;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 6px;
+	margin-bottom: 0;
+
+	@include large-height {
+		flex-direction: column;
+		margin-bottom: 6px;
+	}
 
 	.logo img {
-		height: 96px;
+		height: 64px;
 	}
 
 	.navigator {
 		display: flex;
 		font-size: 1.6rem;
-		margin-top: rem(12px);
 
 		.element {
 			margin: 0 rem(12px);

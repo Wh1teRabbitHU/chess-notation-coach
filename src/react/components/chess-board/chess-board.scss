@@ -3,10 +3,14 @@
 .chess-board {
 	display: flex;
 	flex-wrap: wrap;
-	width: calc(90vh - 172px);
+	width: calc(96vh - 96px);
 	max-width: 70vw;
 	border: 2px solid $gray-600;
-	margin: 12px auto;
+	margin: rem(12px);
+
+	@include large-height {
+		width: calc(95vh - 118px);
+	}
 
 	.chess-square {
 		width: 12.5%;

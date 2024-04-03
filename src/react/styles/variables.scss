@@ -49,3 +49,9 @@ $screen-desktop-min: 1280px;
 		@content;
 	}
 }
+
+@mixin large-height {
+	@media (min-height: 600px) {
+		@content;
+	}
+}
