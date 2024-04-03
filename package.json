@@ -6,8 +6,6 @@
   "type": "module",
   "scripts": {
     "build": "npx webpack --mode=production --config webpack.prod.js",
-    "build:development": "npx webpack --mode=development --config webpack.dev.js",
-    "build:production": "npx webpack --mode=production --config webpack.prod.js",
     "watch": "webpack serve --mode=development --hot --config webpack.dev.js",
     "prepare": "husky"
   },
