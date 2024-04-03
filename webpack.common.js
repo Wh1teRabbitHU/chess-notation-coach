@@ -12,7 +12,7 @@ export default {
 	},
 	output: {
 		filename: `${packageJson.name}-${packageJson.version}.bundle.js`,
-		path: path.resolve(__dirname, './build'),
+		path: path.resolve(__dirname, './docs'),
 		clean: true
 	},
 	module: {

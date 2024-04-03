@@ -7,7 +7,7 @@ import './chess-board.scss';
 
 const ChessBoard = () => {
 	const squares = getDefaultSquares().map(square => (
-		<ChessSquare key={`${square.file}${square.rank}`} square={square} />
+		<ChessSquare key={`${square.file}${square.rank}`} square={square} showNotation={false} />
 	));
 
 	return <div className='chess-board'>{squares}</div>;
