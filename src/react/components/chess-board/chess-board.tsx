@@ -1,12 +1,17 @@
 import React from 'react';
 
-import { getDefaultSquares } from '../../../utils/chess';
+import { getDefaultSquares, getEmptySquares } from '../../../utils/chess';
 import ChessSquare from './chess-square';
 
 import './chess-board.scss';
 
-const ChessBoard = () => {
-	const squares = getDefaultSquares().map(square => (
+interface ChessBoardProps {
+	emptyBoard: boolean;
+}
+
+const ChessBoard = ({ emptyBoard }: ChessBoardProps) => {
+	const squareData = emptyBoard ? getEmptySquares() : getDefaultSquares();
+	const squares = squareData.map(square => (
 		<ChessSquare key={`${square.file}${square.rank}`} square={square} showNotation={false} />
 	));
 

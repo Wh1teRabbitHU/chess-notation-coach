@@ -5,7 +5,7 @@ import ChessBoard from '../../../components/chess-board/chess-board';
 const TimeTrialNewGamePage = () => {
 	return (
 		<div className='time-trial-container'>
-			<ChessBoard />
+			<ChessBoard emptyBoard={true} />
 		</div>
 	);
 };

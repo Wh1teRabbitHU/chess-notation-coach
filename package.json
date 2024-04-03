@@ -8,7 +8,8 @@
     "build": "npx webpack --mode=production --config webpack.prod.js",
     "build:development": "npx webpack --mode=development --config webpack.dev.js",
     "build:production": "npx webpack --mode=production --config webpack.prod.js",
-    "watch": "webpack serve --mode=development --hot --config webpack.dev.js"
+    "watch": "webpack serve --mode=development --hot --config webpack.dev.js",
+    "prepare": "husky"
   },
   "engines": {
     "node": ">=20.12.0"
@@ -29,6 +30,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.6.0",
+    "husky": "^9.0.11",
     "sass": "^1.72.0",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.4",
