@@ -1,19 +1,15 @@
 import React from 'react';
 
-import { ChessFieldColorValues } from '../../../models/chess/field-color';
-import { ChessFileValues } from '../../../models/chess/file';
-import { ChessPieceValues } from '../../../models/chess/piece';
-import { ChessRankValues } from '../../../models/chess/rank';
+import { ChessSquareType } from '../../../models/chess/square';
 import CheckPiece from './chess-piece';
 
 interface ChessSquareProps {
-	rank: ChessRankValues;
-	file: ChessFileValues;
-	color: ChessFieldColorValues;
-	piece?: ChessPieceValues;
+	square: ChessSquareType;
 }
 
-const ChessSquare = ({ rank, file, color, piece }: ChessSquareProps) => {
+const ChessSquare = ({ square }: ChessSquareProps) => {
+	const { file, rank, color, piece } = square;
+
 	return (
 		<div className={`chess-square ${color}`} data-rank={rank} data-file={file}>
 			<span

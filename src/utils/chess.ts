@@ -1,6 +1,8 @@
-import { ChessSquareProps } from '../react/components/chess-board/chess-square';
+import { ChessFileValues } from '../models/chess/file';
+import { ChessRankValues } from '../models/chess/rank';
+import { ChessSquareType } from '../models/chess/square';
 
-const ChessSquareDetails: ChessSquareProps[] = [
+const chessSquares: ChessSquareType[] = [
 	{ file: 'a', rank: '8', color: 'white', piece: 'black_rook' },
 	{ file: 'b', rank: '8', color: 'black', piece: 'black_bishop' },
 	{ file: 'c', rank: '8', color: 'white', piece: 'black_knight' },
@@ -74,4 +76,21 @@ const ChessSquareDetails: ChessSquareProps[] = [
 	{ file: 'h', rank: '1', color: 'white', piece: 'white_rook' }
 ];
 
-export { ChessSquareDetails };
+const chessFiles: ChessFileValues[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+const chessRanks: ChessRankValues[] = ['1', '2', '3', '4', '5', '6', '7', '8'];
+
+const getEmptySquares = (): ChessSquareType[] => {
+	return chessSquares.map(({ file, rank, color }) => ({ file, rank, color }));
+};
+
+const getDefaultSquares = (): ChessSquareType[] => {
+	return chessSquares.map(({ file, rank, color, piece }) => ({ file, rank, color, piece }));
+};
+
+const getRandomSquare = (): ChessSquareType => {
+	const { file, rank, color } = chessSquares[Math.random() * chessSquares.length];
+
+	return { file, rank, color };
+};
+
+export { chessFiles, chessRanks, getEmptySquares, getDefaultSquares, getRandomSquare };

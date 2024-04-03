@@ -14,7 +14,7 @@ const Header = () => {
 					<Link to={'/'}>Main</Link>
 				</span>
 				<span className='element'>
-					<Link to={'/games/time-trial'}>Time Trial</Link>
+					<Link to={'/time-trial'}>Time Trial</Link>
 				</span>
 			</div>
 		</div>

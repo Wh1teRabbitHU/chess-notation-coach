@@ -1,0 +1,11 @@
+@import "../../styles/index.scss";
+
+.menu {
+	margin: rem(24px) 0;
+	padding: 0;
+	list-style-type: none;
+
+	.menu-item {
+		margin: rem(12px) 0;
+	}
+}

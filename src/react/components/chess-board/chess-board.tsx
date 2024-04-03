@@ -1,16 +1,14 @@
 import React from 'react';
 
-import { ChessSquareDetails } from '../../../utils/chess';
+import { getDefaultSquares } from '../../../utils/chess';
 import ChessSquare from './chess-square';
 
 import './chess-board.scss';
 
 const ChessBoard = () => {
-	const squares = [];
-
-	for (const detail of ChessSquareDetails) {
-		squares.push(<ChessSquare file={detail.file} rank={detail.rank} color={detail.color} piece={detail.piece} />);
-	}
+	const squares = getDefaultSquares().map(square => (
+		<ChessSquare key={`${square.file}${square.rank}`} square={square} />
+	));
 
 	return <div className='chess-board'>{squares}</div>;
 };

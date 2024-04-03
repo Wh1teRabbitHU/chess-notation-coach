@@ -7,7 +7,10 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import Layout from './layout/layout';
 import DashboardPage from './pages/dashboard';
-import TimeTrialPage from './pages/games/time-trial';
+import TimeTrialMenuPage from './pages/games/time-trial/menu';
+import TimeTrialNewGamePage from './pages/games/time-trial/new-game';
+import TimeTrialHighscorePage from './pages/games/time-trial/highscore';
+import TimeTrialHelpPage from './pages/games/time-trial/help';
 
 const Main = () => {
 	return (
@@ -15,7 +18,11 @@ const Main = () => {
 			<Layout>
 				<Routes>
 					<Route path='/' element={<DashboardPage />} />
-					<Route path='/games/time-trial' element={<TimeTrialPage />} />
+
+					<Route path='/time-trial' element={<TimeTrialMenuPage />} />
+					<Route path='/time-trial/new-game' element={<TimeTrialNewGamePage />} />
+					<Route path='/time-trial/highscore' element={<TimeTrialHighscorePage />} />
+					<Route path='/time-trial/help' element={<TimeTrialHelpPage />} />
 				</Routes>
 			</Layout>
 		</HashRouter>
