@@ -88,9 +88,14 @@ const getDefaultSquares = (): ChessSquareType[] => {
 };
 
 const getRandomSquare = (): ChessSquareType => {
-	const { file, rank, color } = chessSquares[Math.random() * chessSquares.length];
+	const index = Math.floor(Math.random() * chessSquares.length);
+	const { file, rank, color } = chessSquares[index];
 
 	return { file, rank, color };
 };
 
-export { chessFiles, chessRanks, getEmptySquares, getDefaultSquares, getRandomSquare };
+const squareEqual = (a: ChessSquareType, b: ChessSquareType) => {
+	return a.rank == b.rank && a.file == b.file;
+};
+
+export { chessFiles, chessRanks, getEmptySquares, getDefaultSquares, getRandomSquare, squareEqual };

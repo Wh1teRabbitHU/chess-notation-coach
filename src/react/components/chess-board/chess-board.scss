@@ -6,7 +6,7 @@
 	width: calc(96vh - 96px);
 	max-width: 70vw;
 	border: 2px solid $gray-600;
-	margin: rem(12px);
+	margin: 0 rem(12px) rem(12px);
 
 	@include large-height {
 		width: calc(95vh - 118px);
@@ -14,8 +14,12 @@
 
 	.chess-square {
 		width: 12.5%;
-		padding-bottom: 12.5%;
+		padding-bottom: calc(12.5% - 4px);
 		position: relative;
+		border: 2px solid transparent;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
 
 		&.white {
 			background-color: $light-square;
@@ -23,6 +27,18 @@
 
 		&.black {
 			background-color: $dark-square;
+		}
+
+		&.red-highlight {
+			border: 2px solid $red-dark;
+		}
+
+		&.green-highlight {
+			border: 2px solid $green-dark;
+		}
+
+		&.blue-highlight {
+			border: 2px solid $blue-dark;
 		}
 
 		.check-piece {
