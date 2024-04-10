@@ -31,14 +31,17 @@
 
 		&.red-highlight {
 			border: 2px solid $red-dark;
+			background-color: $red-dark;
 		}
 
 		&.green-highlight {
 			border: 2px solid $green-dark;
+			background-color: $green-dark;
 		}
 
 		&.blue-highlight {
 			border: 2px solid $blue-dark;
+			background-color: $blue-dark;
 		}
 
 		.check-piece {
