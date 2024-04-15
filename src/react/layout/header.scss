@@ -15,6 +15,10 @@
 
 	.logo img {
 		height: 64px;
+
+		@include mobile-size {
+			display: none;
+		}
 	}
 
 	.navigator {

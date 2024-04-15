@@ -1,0 +1,16 @@
+@import "../../styles/index.scss";
+
+.btn {
+	cursor: pointer;
+	color: $gray-500;
+	background-color: transparent;
+	border: 1px solid $gray-500;
+	border-radius: 4px;
+	padding: rem(6px) rem(12px);
+	transition: all 0.3s;
+
+	&:hover {
+		color: white;
+		background-color: $gray-500;
+	}
+}

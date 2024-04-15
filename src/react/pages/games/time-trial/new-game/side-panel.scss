@@ -1,0 +1,41 @@
+@import "../../../../styles/index.scss";
+
+.side-panel {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	border: 2px solid $gray-600;
+	margin: 0 rem(12px) rem(12px);
+	min-width: 320px;
+	max-width: calc(70vw - 24px);
+	width: calc(96vh - 96px);
+	padding: rem(12px);
+
+	@include large-height {
+		width: calc(95vh - 118px);
+	}
+
+	.title {
+		font-size: 1.6rem;
+		margin-bottom: rem(6px);
+	}
+
+	.description {
+		font-weight: 200;
+	}
+
+	.description,
+	.detail {
+		margin-bottom: rem(6px);
+		text-align: left;
+	}
+
+	.detail {
+		display: flex;
+
+		.name {
+			width: 120px;
+			font-weight: bold;
+		}
+	}
+}

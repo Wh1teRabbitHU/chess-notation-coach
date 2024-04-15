@@ -1,3 +1,11 @@
+@import "../../../styles/index.scss";
+
 .time-trial-new-game {
 	display: flex;
+	justify-content: center;
+
+	@include mobile-size {
+		flex-direction: column;
+		align-items: center;
+	}
 }

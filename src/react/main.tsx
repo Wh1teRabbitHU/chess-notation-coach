@@ -11,20 +11,23 @@ import TimeTrialMenuPage from './pages/games/time-trial/menu';
 import TimeTrialNewGamePage from './pages/games/time-trial/new-game';
 import TimeTrialHighscorePage from './pages/games/time-trial/highscore';
 import TimeTrialHelpPage from './pages/games/time-trial/help';
+import ContextGroup from './context/group';
 
 const Main = () => {
 	return (
 		<HashRouter>
-			<Layout>
-				<Routes>
-					<Route path='/' element={<DashboardPage />} />
+			<ContextGroup>
+				<Layout>
+					<Routes>
+						<Route path='/' element={<DashboardPage />} />
 
-					<Route path='/time-trial' element={<TimeTrialMenuPage />} />
-					<Route path='/time-trial/new-game' element={<TimeTrialNewGamePage />} />
-					<Route path='/time-trial/highscore' element={<TimeTrialHighscorePage />} />
-					<Route path='/time-trial/help' element={<TimeTrialHelpPage />} />
-				</Routes>
-			</Layout>
+						<Route path='/time-trial' element={<TimeTrialMenuPage />} />
+						<Route path='/time-trial/new-game' element={<TimeTrialNewGamePage />} />
+						<Route path='/time-trial/highscore' element={<TimeTrialHighscorePage />} />
+						<Route path='/time-trial/help' element={<TimeTrialHelpPage />} />
+					</Routes>
+				</Layout>
+			</ContextGroup>
 		</HashRouter>
 	);
 };

@@ -4,6 +4,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	width: calc(96vh - 96px);
+	min-width: 320px;
 	max-width: 70vw;
 	border: 2px solid $gray-600;
 	margin: 0 rem(12px) rem(12px);

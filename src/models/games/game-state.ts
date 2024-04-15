@@ -5,6 +5,7 @@ interface GameStateType {
 	roundCount: number;
 	failedCount: number;
 	maxRounds: number;
+	timer: number;
 }
 
 export type { GameStateType };
