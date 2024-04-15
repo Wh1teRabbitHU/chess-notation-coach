@@ -9,7 +9,7 @@ interface GameStateContextProps {
 
 const defaultGameState: GameStateType = {
 	stage: 'not-started',
-	maxRounds: 20,
+	maxRounds: 10,
 	roundCount: 0,
 	failedCount: 0,
 	timer: 0
@@ -19,6 +19,12 @@ const defaultContext = {
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	updateState: (newState: GameStateType) => {},
+	startGame: () => {},
+	stopGame: () => {},
+	restartGame: () => {},
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	evaluateGuess: (found: boolean) => {},
 	startTimer: () => {},
 	stopTimer: () => {},
 	resetTimer: () => {}
@@ -34,6 +40,36 @@ const GameStateContextProvider = ({ children }: GameStateContextProps) => {
 
 	const updateState = (newState: GameStateType) => {
 		setState(newState);
+	};
+
+	const startGame = () => {
+		startTimer();
+		setState(prev => ({ ...prev, stage: 'running' }));
+	};
+
+	const stopGame = () => {
+		resetTimer();
+		setState(prev => ({ ...prev, stage: 'not-started' }));
+	};
+
+	const restartGame = () => {
+		startTimer();
+		setState({ ...defaultGameState, stage: 'running' });
+	};
+
+	const evaluateGuess = (found: boolean) => {
+		const maxRoundReached = state.roundCount + 1 === state.maxRounds;
+
+		updateState({
+			...state,
+			roundCount: state.roundCount + 1,
+			failedCount: state.failedCount + (found ? 0 : 1),
+			stage: maxRoundReached ? 'finished' : 'running'
+		});
+
+		if (maxRoundReached) {
+			stopTimer();
+		}
 	};
 
 	const startTimer = () => {
@@ -56,7 +92,19 @@ const GameStateContextProvider = ({ children }: GameStateContextProps) => {
 	};
 
 	return (
-		<GameStateContext.Provider value={{ state, updateState, startTimer, stopTimer, resetTimer }}>
+		<GameStateContext.Provider
+			value={{
+				state,
+				updateState,
+				startGame,
+				stopGame,
+				restartGame,
+				evaluateGuess,
+				startTimer,
+				stopTimer,
+				resetTimer
+			}}
+		>
 			{children}
 		</GameStateContext.Provider>
 	);

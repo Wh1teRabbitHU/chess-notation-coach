@@ -13,6 +13,19 @@
 		width: calc(95vh - 118px);
 	}
 
+	&.cursor-highlight .chess-square:hover:after {
+		position: absolute;
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+		left: -6px;
+		top: -6px;
+		z-index: 1;
+		content: " ";
+		cursor: pointer;
+		border: 4px solid $gray-200;
+		border-radius: 6px;
+	}
+
 	.chess-square {
 		width: 12.5%;
 		padding-bottom: calc(12.5% - 4px);

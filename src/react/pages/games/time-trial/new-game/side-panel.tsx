@@ -13,23 +13,29 @@ interface SidePanelProps {
 }
 
 const SidePanel = ({ target, lastFound }: SidePanelProps) => {
-	const { state, startTimer } = useGameState();
+	const { state, startGame, stopGame, restartGame } = useGameState();
 
 	return (
 		<div className='side-panel'>
 			<div className='title'>Time Trial Game</div>
-			<div className='detail'>
-				<span className='name'>Time elapsed: </span>
-				<span className='value'>{state.timer} seconds</span>
-			</div>
-			<div className='detail'>
-				<span className='name'>Round: </span>
-				<span className='value'>{`${state.roundCount}/${state.maxRounds}`}</span>
-			</div>
-			<div className='detail'>
-				<span className='name'>Next notation: </span>
-				<span className='value'>{`${target.file}${target.rank}`}</span>
-			</div>
+
+			<If condition={state.stage !== 'not-started'}>
+				<div className='detail'>
+					<span className='name'>Time elapsed: </span>
+					<span className='value'>{state.timer} seconds</span>
+				</div>
+				<div className='detail'>
+					<span className='name'>Round: </span>
+					<span className='value'>{`${state.roundCount} / ${state.maxRounds}`}</span>
+				</div>
+			</If>
+
+			<If condition={state.stage === 'running'}>
+				<div className='detail'>
+					<span className='name'>Next notation: </span>
+					<span className='value'>{`${target.file}${target.rank}`}</span>
+				</div>
+			</If>
 
 			<If condition={typeof lastFound != 'undefined'}>
 				<div className='detail'>
@@ -51,7 +57,17 @@ const SidePanel = ({ target, lastFound }: SidePanelProps) => {
 			</div>
 
 			<div className='control'>
-				<Button text='Start Game' onClick={startTimer} />
+				<If condition={state.stage === 'not-started'}>
+					<Button text='Start Game' onClick={startGame} />
+				</If>
+
+				<If condition={state.stage === 'running'}>
+					<Button text='Stop Game' onClick={stopGame} />
+				</If>
+
+				<If condition={state.stage === 'finished'}>
+					<Button text='Restart Game' onClick={restartGame} />
+				</If>
 			</div>
 		</div>
 	);

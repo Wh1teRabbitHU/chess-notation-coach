@@ -9,11 +9,12 @@ import './chess-board.scss';
 
 interface ChessBoardProps {
 	highlights: SquareHighlightType[];
-	onClickSquare: (square: ChessSquareType) => void;
 	emptyBoard: boolean;
+	cursorHighlight: boolean;
+	onClickSquare: (square: ChessSquareType) => void;
 }
 
-const ChessBoard = ({ highlights, emptyBoard, onClickSquare }: ChessBoardProps) => {
+const ChessBoard = ({ highlights, emptyBoard, cursorHighlight, onClickSquare }: ChessBoardProps) => {
 	const squareData = emptyBoard ? getEmptySquares() : getDefaultSquares();
 	const squares = squareData.map(square => {
 		const highlight = highlights.find(h => squareEqual(h.square, square));
@@ -29,7 +30,9 @@ const ChessBoard = ({ highlights, emptyBoard, onClickSquare }: ChessBoardProps) 
 		);
 	});
 
-	return <div className='chess-board'>{squares}</div>;
+	const className = `chess-board${cursorHighlight ? ' cursor-highlight' : ''}`;
+
+	return <div className={className}>{squares}</div>;
 };
 
 export default ChessBoard;

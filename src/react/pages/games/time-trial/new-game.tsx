@@ -14,9 +14,15 @@ const TimeTrialNewGamePage = () => {
 	const [lastFound, setLastFound] = useState<boolean>();
 	const [highlights, setHighlights] = useState<SquareHighlightType[]>([]);
 
-	const { state, updateState } = useGameState();
+	const { state, evaluateGuess } = useGameState();
+
+	const gameRunning = state.stage === 'running';
 
 	const onClickSquare = (selected: ChessSquareType) => {
+		if (!gameRunning) {
+			return;
+		}
+
 		const found = squareEqual(target, selected);
 		const highlightTarget: SquareHighlightType = { color: found ? 'green' : 'blue', square: target };
 
@@ -28,17 +34,17 @@ const TimeTrialNewGamePage = () => {
 
 		setLastFound(found);
 		setTarget(getRandomSquare());
-		updateState({
-			...state,
-			roundCount: state.roundCount + 1,
-			failedCount: state.failedCount + (found ? 0 : 1),
-			stage: state.roundCount + 1 === state.maxRounds ? 'finished' : 'running'
-		});
+		evaluateGuess(found);
 	};
 
 	return (
 		<div className='time-trial-new-game'>
-			<ChessBoard highlights={highlights} onClickSquare={onClickSquare} emptyBoard={true} />
+			<ChessBoard
+				highlights={highlights}
+				onClickSquare={onClickSquare}
+				emptyBoard={true}
+				cursorHighlight={gameRunning}
+			/>
 
 			<SidePanel target={target} lastFound={lastFound} />
 		</div>
