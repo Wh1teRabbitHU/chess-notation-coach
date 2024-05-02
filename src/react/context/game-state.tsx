@@ -20,7 +20,7 @@ const defaultGameState: GameStateType = {
 	highlights: []
 };
 const defaultContext = {
-	state: defaultGameState,
+	state: Object.assign({}, defaultGameState),
 
 	setState: <AttrType extends keyof GameStateType>(
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -30,7 +30,6 @@ const defaultContext = {
 	) => {},
 	startGame: () => {},
 	stopGame: () => {},
-	restartGame: () => {},
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	evaluateGuess: (found: boolean, target: ChessSquareType, selected: ChessSquareType) => {},
@@ -56,17 +55,12 @@ const GameStateContextProvider = ({ children }: GameStateContextProps) => {
 
 	const startGame = () => {
 		startTimer();
-		setStateAttr('stage', 'running');
+		setState(Object.assign({}, defaultGameState, { stage: 'running' }));
 	};
 
 	const stopGame = () => {
 		resetTimer();
-		setState(prev => ({ ...prev, stage: 'not-started', highlights: [] }));
-	};
-
-	const restartGame = () => {
-		startTimer();
-		setStateAttr('stage', 'running');
+		setState(prev => ({ ...prev, stage: 'not-started' }));
 	};
 
 	const evaluateGuess = (found: boolean, target: ChessSquareType, selected: ChessSquareType) => {
@@ -117,7 +111,6 @@ const GameStateContextProvider = ({ children }: GameStateContextProps) => {
 				setState: setStateAttr,
 				startGame,
 				stopGame,
-				restartGame,
 				evaluateGuess,
 				startTimer,
 				stopTimer,

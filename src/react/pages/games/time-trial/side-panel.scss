@@ -33,6 +33,21 @@
 	.detail {
 		display: flex;
 
+		&.large {
+			text-align: center;
+			flex-direction: column;
+			margin-bottom: rem(12px);
+
+			.name {
+				font-size: 1.6rem;
+				width: auto;
+			}
+
+			.value {
+				font-size: 2.4rem;
+			}
+		}
+
 		.name {
 			width: 120px;
 			font-weight: bold;
