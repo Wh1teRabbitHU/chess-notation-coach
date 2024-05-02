@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ChessSquareType } from '../../../../../models/chess/square';
-import Button from '../../../../components/control/button';
-import If from '../../../../components/misc/if';
-import useGameState from '../../../../hooks/context/game-state';
+import { ChessSquareType } from '../../../../models/chess/square';
+import Button from '../../../components/control/button';
+import If from '../../../components/misc/if';
+import useGameState from '../../../hooks/context/game-state';
 
 import './side-panel.scss';
 
@@ -37,7 +37,7 @@ const SidePanel = ({ target, lastFound }: SidePanelProps) => {
 				</div>
 			</If>
 
-			<If condition={typeof lastFound != 'undefined'}>
+			<If condition={state.stage !== 'not-started' && typeof lastFound != 'undefined'}>
 				<div className='detail'>
 					<span className='name'>Result: </span>
 					<span className='value'>{lastFound ? 'Found!' : 'Missed!'}</span>
