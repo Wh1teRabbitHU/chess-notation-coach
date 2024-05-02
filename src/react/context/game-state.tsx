@@ -4,6 +4,7 @@ import { ChessSquareType } from '../../models/chess/square';
 import { ReactChildrenType } from '../../models/common/react-children';
 import { GameStateType } from '../../models/games/game-state';
 import { SquareHighlightType } from '../../models/games/square-highlight';
+import highscore from '../../modules/highscore';
 
 interface GameStateContextProps {
 	children: ReactChildrenType;
@@ -12,6 +13,7 @@ interface GameStateContextProps {
 const defaultGameState: GameStateType = {
 	stage: 'not-started',
 	maxRounds: 10,
+	penalty: 5,
 	roundCount: 0,
 	failedCount: 0,
 	timer: 0,
@@ -84,6 +86,8 @@ const GameStateContextProvider = ({ children }: GameStateContextProps) => {
 
 		if (maxRoundReached) {
 			stopTimer();
+
+			highscore.addHighscore(state);
 		}
 	};
 
