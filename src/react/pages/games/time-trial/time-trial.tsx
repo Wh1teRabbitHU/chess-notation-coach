@@ -4,7 +4,7 @@ import { ChessSquareType } from '../../../../models/chess/square';
 import { getRandomSquare, squareEqual } from '../../../../utils/chess';
 import ChessBoard from '../../../components/chess-board/chess-board';
 import useGameState from '../../../hooks/context/game-state';
-import SidePanel from './side-panel';
+import SidePanel from './components/side-panel';
 
 import './time-trial.scss';
 

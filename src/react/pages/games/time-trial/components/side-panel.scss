@@ -1,4 +1,4 @@
-@import "../../../styles/index.scss";
+@import "../../../../styles/index.scss";
 
 .side-panel {
 	display: flex;
@@ -51,6 +51,12 @@
 		.name {
 			width: 120px;
 			font-weight: bold;
+		}
+	}
+
+	.controls {
+		.btn:not(:last-of-type) {
+			margin-right: rem(12px);
 		}
 	}
 }

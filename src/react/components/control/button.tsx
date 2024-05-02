@@ -5,11 +5,12 @@ import './button.scss';
 
 interface ButtonProps {
 	text: string;
+	disabled?: boolean;
 	target?: string;
 	onClick?: () => void;
 }
 
-const Button = ({ text, target, onClick }: ButtonProps) => {
+const Button = ({ text, disabled = false, target, onClick }: ButtonProps) => {
 	let onClickFn;
 
 	const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Button = ({ text, target, onClick }: ButtonProps) => {
 	}
 
 	return (
-		<button className='btn' onClick={onClickFn}>
+		<button className='btn' onClick={onClickFn} disabled={disabled}>
 			{text}
 		</button>
 	);

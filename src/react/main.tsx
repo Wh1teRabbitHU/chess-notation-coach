@@ -9,7 +9,7 @@ import Layout from './layout/layout';
 import DashboardPage from './pages/dashboard';
 import TimeTrialMenuPage from './pages/games/time-trial/menu';
 import TimeTrialNewGamePage from './pages/games/time-trial/time-trial';
-import TimeTrialHighscorePage from './pages/games/time-trial/highscore';
+import TimeTrialHighscorePage from './pages/games/time-trial/highscores';
 import TimeTrialHelpPage from './pages/games/time-trial/help';
 import ContextGroup from './context/group';
 

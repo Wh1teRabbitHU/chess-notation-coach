@@ -3,7 +3,7 @@ import { HighscoreType } from '../models/games/highscore';
 import localStorage from './local-storage';
 
 const highscoresKey = 'time-trial.highscore';
-const maxHighscores = 10;
+const maxHighscores = 5;
 
 const getHighscores = (): HighscoreType[] => {
 	const rawHighscores = localStorage.get(highscoresKey);
@@ -18,7 +18,7 @@ const getHighscores = (): HighscoreType[] => {
 const addHighscore = (state: GameStateType) => {
 	let highscores = getHighscores();
 	const newHighscore = {
-		timestamp: new Date().toLocaleTimeString(),
+		timestamp: new Date().toLocaleString(),
 		found: state.maxRounds - state.failedCount,
 		maxRounds: state.maxRounds,
 		penalty: state.failedCount * state.penalty,
@@ -29,7 +29,7 @@ const addHighscore = (state: GameStateType) => {
 	};
 
 	highscores.push(newHighscore);
-	highscores.sort((a: HighscoreType, b: HighscoreType) => b.times.adjusted - a.times.adjusted);
+	highscores.sort((a: HighscoreType, b: HighscoreType) => a.times.adjusted - b.times.adjusted);
 
 	if (highscores.length > maxHighscores) {
 		highscores = highscores.slice(0, -1);

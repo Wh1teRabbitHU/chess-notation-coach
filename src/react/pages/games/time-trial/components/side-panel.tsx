@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { ChessSquareType } from '../../../../models/chess/square';
-import Button from '../../../components/control/button';
-import If from '../../../components/misc/if';
-import useGameState from '../../../hooks/context/game-state';
+import { ChessSquareType } from '../../../../../models/chess/square';
+import Button from '../../../../components/control/button';
+import If from '../../../../components/misc/if';
+import useGameState from '../../../../hooks/context/game-state';
 
 import './side-panel.scss';
 
@@ -56,7 +56,7 @@ const SidePanel = ({ target, lastFound }: SidePanelProps) => {
 				the right square as fast as possible, without missing the right position!
 			</div>
 
-			<div className='control'>
+			<div className='controls'>
 				<If condition={state.stage === 'not-started'}>
 					<Button text='Start Game' onClick={startGame} />
 				</If>
@@ -67,6 +67,10 @@ const SidePanel = ({ target, lastFound }: SidePanelProps) => {
 
 				<If condition={state.stage === 'finished'}>
 					<Button text='Restart Game' onClick={startGame} />
+				</If>
+
+				<If condition={state.stage !== 'running'}>
+					<Button text='Back' target='/time-trial' />
 				</If>
 			</div>
 		</div>
